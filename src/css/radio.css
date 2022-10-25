@@ -1,0 +1,28 @@
+[name=radio-container]{
+    position:absolute;
+    width:max-content;
+    top:0;
+    right: 10%;
+    opacity: 1;
+    animation-name:'fromLeft';
+    animation-duration: 0.2s;
+    animation-timing-function:ease-in;
+  }
+  @keyframes fromLeft{
+    from{
+      right: -10%;
+      opacity: 0;
+    }
+    to{
+      right:10%;
+      opacity:1;
+    }
+  }
+
+
+  [name=radio-container] .btn-group{
+    display:inline-grid;
+    grid-auto-flow: column;
+    grid-gap:10px;
+  }
+  

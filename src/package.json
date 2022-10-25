@@ -1,0 +1,16 @@
+{
+
+  "app": "/",
+
+  "source": "./index.html",
+  "targets": {
+    "default": {
+      "distDir": "../public"
+    }
+  },
+  "browserslist": "chrome 61",
+  "dependencies": {
+    "posthtml-include": "^1.7.4"
+  }
+}
+

@@ -1,0 +1,67 @@
+<template id="login">
+    <style>
+        .login-container{
+            height:100vh;
+            position:relative;
+        }
+        .login-content{
+            max-width:400px;
+            padding:2rem 0rem 0rem;
+            margin:auto;
+            
+        }
+        #particles-js{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            height:100vh;
+            width:100%;
+            z-index: 1;
+        }
+        .login-content-wrapper{
+            position: absolute;
+            height:100vh;
+            width:100%;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            z-index: 100;
+        }
+    </style>
+    <div class="login-container text-bg-dark">
+        <div id="particles-js"></div>
+        <div class="login-content-wrapper">
+            <div class="login-content">
+                <p style="text-align:center">
+                    <!-- <img src="./img/mmm.webp" width="200"> -->
+                    <h3>GCASH Service Admin</h3>
+                </p>
+                <br>
+                <h5>Login</h5>
+                <br>
+                <form data-event="submit">
+                    <div class="mb-3">
+                      <label for="username" class="form-label">Username</label>
+                      <input type="text" placeholder="username" class="form-control" id="username" name="username" >
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+
+                      <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="password" id="password" placeholder="password" aria-label="password" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2" data-event="click:toggle">
+                            <i data-feather="eye"></i>
+                        </span>
+                      </div>
+                      
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

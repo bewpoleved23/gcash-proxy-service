@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gcash Service</title>
+
+
+    <link href="/index.6c0bc199.css" rel="stylesheet">
+    <link href="/index.cd96018a.css" rel="stylesheet">
+    <link rel="stylesheet" href="/index.4ec11dbb.css">
+</head>
+<body>
+
+    <article id="app">
+        <header class="header-container"></header>
+        <div class="toolbar-container"></div>
+        <div class="table-container"></div>
+        <div class="login-container"></div>
+    </article>
+
+    <template id="form">
+    <form id="{{form}}" name="{{form}}" data-event="submit">
+        <div data-for="item of controls">
+            <div data-switch="tag">
+                <div data-case="input">
+                    <div class="mb-3">
+                        <label for="{{name}}" class="form-label">{{display}}</label>
+                        <input type="{{type}}" placeholder="{{placeholder}}" min="1" multiple="" class="form-control input" id="{{name}}" name="{{name}}">
+                    </div>
+                </div>
+                <div data-case="input-file">
+                    <div class="mb-3">
+                        <label for="{{name}}" class="form-label">{{display}}</label>
+                        <input data-event="change:preview" type="{{type}}" placeholder="{{placeholder}}" min="1" multiple="" class="form-control input" id="{{name}}" name="{{name}}">
+                    </div>
+                </div>
+                <div data-case="input-branch">
+                    <div class="mb-3">
+                        <label for="{{name}}" class="form-label">{{display}}</label>
+                        <input data-bind="currentBranch" list="{{name}}-list" type="{{type}}" placeholder="{{placeholder}}" class="form-control input" id="{{name}}" name="{{name}}" data-attr="isreadonly && readonly=true">
+                        <datalist id="{{name}}-list">
+                            <option data-for="branch of item.branchList" value="{{branch.name}}">{{branch.display}}</option>
+                        </datalist>
+                    </div>
+                </div>
+                <div data-case="select">
+                    <label for="{{name}}" class="form-label">{{display}}</label>
+                    <select class="form-select" id="{{name}}" name="{{name}}">
+
+                        <option value="csr">CSR</option>
+                        <option value="layout">Layout</option>
+                        <option value="printer">Printing</option>
+                        <option value="heater">Heating</option>
+                        <option value="sewer">Sewer</option>
+                        <option value="deliver">Delivery</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div data-container="preview"></div>
+    </form>
+</template>
+<template id="login">
+    <style>.login-container {
+  height: 100vh;
+  background-color: #000 !important;
+}
+
+.login-content {
+  padding: 2.5rem 1rem;
+}
+
+</style>
+    <div class="login-container text-bg-dark">
+        <div class="login-content">
+            <p style="text-align: center">
+                <!-- <img src="./img/mmm.webp" width="200"> -->
+            </p>
+            <br>
+            <h5>Login</h5>
+            <br>
+            <form data-event="submit">
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" placeholder="username" class="form-control" id="username" name="username">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" placeholder="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-default">Cancel</button>
+            </form>
+        </div>
+    </div>
+</template>
+<template id="modal">
+    <div>
+        <!-- Button trigger modal -->
+        <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-container="toggle"></a>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-container="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">{{display}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-target-container"></div>
+                </div>
+                <div class="modal-footer" data-class="!has_footer && d-none">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="{{form}}" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            </div>
+        </div>
+  
+    </div>
+</template>
+<template id="radio">
+    <div class="field is-grouped" name="radio-container" data-animate="ns:radio">
+        <div class="btn-group">
+            <button class="btn {{ctx}}" type="button" data-name="{{name}}" data-for="item of radios">{{display}}</button>
+        </div>
+    </div>
+
+    
+</template>
+<template id="spinner">
+    <style>.spinner-container {
+  z-index: 1500;
+  width: 100%;
+  height: 100vh;
+  place-content: center;
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+</style>
+    <div class="spinner-container {{type}}">
+        <svg class="pl" viewBox="0 0 128 128" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="pl-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(193,90%,55%)"></stop>
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)"></stop>
+                </linearGradient>
+            </defs>
+            <circle class="pl__ring" r="56" cx="64" cy="64" fill="none" stroke="hsla(0,10%,10%,0.1)" stroke-width="16" stroke-linecap="round"></circle>
+            <path class="pl__worm" d="M92,15.492S78.194,4.967,66.743,16.887c-17.231,17.938-28.26,96.974-28.26,96.974L119.85,59.892l-99-31.588,57.528,89.832L97.8,19.349,13.636,88.51l89.012,16.015S81.908,38.332,66.1,22.337C50.114,6.156,36,15.492,36,15.492a56,56,0,1,0,56,0Z" fill="none" stroke="url(#pl-grad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="44 1111" stroke-dashoffset="10"></path>
+        </svg>
+    </div>
+</template>
+<template id="table">
+    <article>
+        <br>
+        <br>
+        <section class="table-content" id="dtable" data-container="table"></section>
+        <br>
+        <br>
+        <br>
+    </article>
+</template>
+<template id="tabs">
+  <div class="tabs-content">
+    <ul class="nav nav-tabs" data-event="click">
+
+      <li class="nav-item" data-for="item of tabs">
+        <a class="nav-link" data-toggle="tab" data-name="{{name}}">{{display}}</a>
+      </li>
+
+  </ul>
+  </div>
+</template>
+<template id="toolbar">
+    <div style="text-align: right" class="my-3">
+        <div class="btn-group btn-group-sm" role="group" data-event="click">
+            <button type="button" class="btn btn-outline-dark" data-for="item of toolbars" data-name="{{name}}">{{display}}</button>
+        </div>
+    </div>
+      
+</template>
+    
+    <script src="/index.e4c9e759.js"></script>
+    <script src="/index.78f3b3dc.js"></script>
+    <script src="/index.906b8dc8.js"></script>
+    <script src="/index.488cf140.js"></script>
+    <!-- <script src="./js/chart2.js"></script> -->
+    <script src="/index.8905fd03.js"></script>
+    <script src="/index.0e730c55.js"></script>
+
+    <script src="/index.19f38a4f.js" defer=""></script>
+</body>
+</html>

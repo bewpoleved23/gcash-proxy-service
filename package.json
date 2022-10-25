@@ -1,0 +1,36 @@
+{
+  "name": "gcash-proxy-service",
+  "version": "1.0.0",
+  "description": "payment integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch ./src --exec './build.sh' --ext html,css,js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bewpoleved23/gcash-proxy-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bewpoleved23/gcash-proxy-service/issues"
+  },
+  "homepage": "https://github.com/bewpoleved23/gcash-proxy-service#readme",
+  "nodemonConfig": {
+    "ignore": [
+      "dist/*",
+      "./src/component_build/*"
+    ]
+  },
+  "dependencies": {
+    "esbuild": "^0.15.12",
+    "feather-icons": "^4.29.0",
+    "parcel": "^2.7.0",
+    "particles.js": "^2.0.0"
+  },
+  "devDependencies": {
+    "posthtml-include": "^1.7.4"
+  }
+}

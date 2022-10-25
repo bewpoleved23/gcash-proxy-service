@@ -1,0 +1,118 @@
+.pl, .pl__worm {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.pl {
+  width: 8em;
+  height: 8em;
+  animation-name: bump9;
+  animation-timing-function: linear;
+}
+
+.pl__ring {
+  stroke: hsla(var(--hue), 10%, 10%, .1);
+  transition: stroke .3s;
+}
+
+.pl__worm {
+  animation-name: worm9;
+  animation-timing-function: cubic-bezier(.42, .17, .75, .83);
+}
+
+@keyframes bump9 {
+  from, 42%, 46%, 51%, 55%, 59%, 63%, 67%, 71%, 74%, 78%, 81%, 85%, 88%, 92%, to {
+    transform: translate(0);
+  }
+
+  44% {
+    transform: translate(1.33%, 6.75%);
+  }
+
+  53% {
+    transform: translate(-16.67%, -.54%);
+  }
+
+  61% {
+    transform: translate(3.66%, -2.46%);
+  }
+
+  69% {
+    transform: translate(-.59%, 15.27%);
+  }
+
+  76% {
+    transform: translate(-1.92%, -4.68%);
+  }
+
+  83% {
+    transform: translate(9.38%, .96%);
+  }
+
+  90% {
+    transform: translate(-4.55%, 1.98%);
+  }
+}
+
+@keyframes worm9 {
+  from {
+    stroke-dashoffset: 10px;
+  }
+
+  25% {
+    stroke-dashoffset: 295px;
+  }
+
+  to {
+    stroke-dashoffset: 1165px;
+  }
+}
+
+.spinner-container.solid {
+  background-color: #fefefe;
+}
+
+.spinner-container.transparent {
+  background-color: rgba(254, 254, 254, .6);
+}
+
+[name="radio-container"] {
+  width: max-content;
+  opacity: 1;
+  animation-name: fromLeft;
+  animation-duration: .2s;
+  animation-timing-function: ease-in;
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+
+@keyframes fromLeft {
+  from {
+    opacity: 0;
+    right: -10%;
+  }
+
+  to {
+    opacity: 1;
+    right: 10%;
+  }
+}
+
+[name="radio-container"] .btn-group {
+  grid-gap: 10px;
+  grid-auto-flow: column;
+  display: inline-grid;
+}
+
+.tabulator-cell, .tabulator-col-resize-handle {
+  height: 42px !important;
+}
+
+.tabulator-paginator {
+  display: none;
+}
+
+
+
+/*# sourceMappingURL=index.4ec11dbb.css.map */

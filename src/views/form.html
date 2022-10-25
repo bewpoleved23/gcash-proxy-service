@@ -1,0 +1,42 @@
+<template id="form">
+    <form id="{{form}}" name="{{form}}" data-event="submit">
+        <div data-for="item of controls">
+            <div data-switch="tag">
+                <div data-case="input">
+                    <div class="mb-3" >
+                        <label for="{{name}}" class="form-label">{{display}}</label>
+                        <input type="{{type}}" placeholder="{{placeholder}}" min="1" multiple class="form-control input" id="{{name}}" name="{{name}}">
+                    </div>
+                </div>
+                <div data-case="input-file">
+                    <div class="mb-3" >
+                        <label for="{{name}}" class="form-label">{{display}}</label>
+                        <input data-event="change:preview" type="{{type}}" placeholder="{{placeholder}}" min="1" multiple class="form-control input" id="{{name}}" name="{{name}}">
+                    </div>
+                </div>
+                <div data-case="input-branch">
+                    <div class="mb-3" >
+                        <label for="{{name}}" class="form-label">{{display}}</label>
+                        <input data-bind="currentBranch" list="{{name}}-list" type="{{type}}" placeholder="{{placeholder}}" class="form-control input" id="{{name}}" name="{{name}}" data-attr="isreadonly && readonly=true">
+                        <datalist id="{{name}}-list">
+                            <option data-for="branch of item.branchList" value="{{branch.name}}">{{branch.display}}</option>
+                        </datalist>
+                    </div>
+                </div>
+                <div data-case="select">
+                    <label for="{{name}}" class="form-label">{{display}}</label>
+                    <select  class="form-select" id="{{name}}" name="{{name}}">
+
+                        <option value="csr">CSR</option>
+                        <option value="layout">Layout</option>
+                        <option value="printer">Printing</option>
+                        <option value="heater">Heating</option>
+                        <option value="sewer">Sewer</option>
+                        <option value="deliver">Delivery</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div  data-container="preview"></div>
+    </form>
+</template>

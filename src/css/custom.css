@@ -1,0 +1,8 @@
+.tabulator-cell,
+.tabulator-col-resize-handle{
+  height: 42px!important;
+}
+
+.tabulator-paginator{
+  display: none;
+}

@@ -1,0 +1,26 @@
+<template id="modal">
+    <div>
+        <!-- Button trigger modal -->
+        <a  data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-container="toggle"></a>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-container="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">{{display}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-target-container"></div>
+                </div>
+                <div class="modal-footer" data-class="!has_footer && d-none">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form={{form}} class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            </div>
+        </div>
+  
+    </div>
+</template>
