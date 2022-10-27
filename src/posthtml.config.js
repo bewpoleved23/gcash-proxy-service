@@ -9,12 +9,12 @@ module.exports = {
         "posthtml-include":{
             "root":__dirname
         },
-        // "posthtml-expressions":{
-        //     locals:{
-        //         BASE_URL:conf.BASE_URL,
-        //         SOCKET_URL:conf.SOCKET_URL,
-        //     },
-        //     delimiters:["((","))"],
-        // }
+        "posthtml-expressions":{
+            locals:{
+                API_URL:'http://localhost:9324',
+
+            },
+            delimiters:["((","))"],
+        }
     }
 }

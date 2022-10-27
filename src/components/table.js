@@ -28,7 +28,7 @@ Cake.create('table','#table',{
 
             pagination:true, //enable pagination
             paginationMode:"remote",
-            paginationSize:100,
+            paginationSize:10,
             paginationSizeSelector:[5, 10, 25, 50],
 
             filterMode:"remote",
@@ -62,11 +62,16 @@ Cake.create('table','#table',{
             await this.reset();
         },
         async isConnected(){
-            let name = this.$router.name;
-            let query = this.$router.state;
-
-            let colDef = await TransactionController.columns();
-            this.fire.renderTable({colDef});
+            try {
+                let name = this.$router.name;
+                let query = this.$router.state;
+    
+                let colDef = await TransactionController.columns();
+                this.fire.renderTable({colDef});
+    
+            } catch(err){
+                this.fire('error',err.message);
+            };
         },
         async renderTable({colDef}){
             let columns = colDef.map(item=>{
@@ -92,19 +97,30 @@ Cake.create('table','#table',{
                 ajaxURL:"http://www.getmydata.com/now",
                 ajaxResponse:(url, params, response)=>{
 
-                    console.log(response);
+                    // console.log(response);
 
-                    // return {
-                    //     last_page:response.length,
-                    //     page:params.page,
-                    //     data:response,
-                    // }; 
+                    if(response.status){
+                        return response.data;
+                    } else {
+                        return {
+                            last_page:1,
+                            page:params.page,
+                            data:[],
+                        }; 
+                    }
 
-                    return response;
+            
+
+                    
                 },
                 ajaxRequestFunc:(url, config, params)=>{
+
+                    
+
                     if([  'transaction',].includes($this.$router.name)){
-                        return TransactionController.paginate(config);
+                        return TransactionController.paginate(params).catch(err=>{
+                            return {status:0};
+                        });
                     }else if([  'user',].includes($this.$router.name)){
                         
                         return $this.fire('getCurrentTab').then((tab)=>{

@@ -9,7 +9,7 @@ Cake.create('spinner','#spinner',{
         spin:{
             components:['login','api','table','view_user','view_project','tabs','login','page_controller','radio','sidebar','form','chart','summary'],
             handler(e){
-                console.trace();
+                // console.trace();
                 return this.render({data:{type:e || "transparent"}});
             }
         },

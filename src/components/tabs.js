@@ -13,7 +13,7 @@ Cake.create('tabs','#tabs',{
         },
         async isConnected(e){ 
             // console.log('tab',this.data.tab);
-            await this.fire.getProjects();
+            // await this.fire.getProjects();
         },
         async getProjects(){
             let tabs = [];

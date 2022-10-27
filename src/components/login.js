@@ -1,4 +1,4 @@
-// import UserController from '../controllers/UserController';
+import UserController from '../controllers/UserController';
 import 'particles.js';
 import * as feather from 'feather-icons';
 
@@ -131,16 +131,16 @@ Cake.create('login','#login',{
 
             console.log(json);
 
-            await this.fire('success','Login successful');
+            // await this.fire('success','Login successful');
 
-            await this.$router.login({
-                token:'asdasd',
-                role:'admin',
-                data:{},
-            });
+            // await this.$router.login({
+            //     token:'asdasd',
+            //     role:'admin',
+            //     data:{},
+            // });
 
 
-            return;
+ 
             let {username, password} = json;
 
 
@@ -149,25 +149,26 @@ Cake.create('login','#login',{
             await this.fire('spin','login');
 
             try {
-                let user = await UserController.get({username:username});
+                let user = await UserController.checkUsername({username});
                 // user = await user.json();
 
 
-                if(user && user.length){
+                if(user){
                     this.fire('spinout','login');
 
-                    if(user[0].status != 'active'){
-                        this.fire('error','account is inactive');
-                        return;
-                    };
                     let $this= this;
-                    if(user[0].password == password){
+
+                    let login = await UserController.login(username, password);
+
+                    // console.log(163,login);
+
+                    if(login){
                         await this.fire('success','login successful');
 
                         await this.$router.login({
-                            token:moment().format(),
-                            role:user[0].role,
-                            data:user[0],
+                            token:login.token,
+                            role:login.role,
+                            data:login.data,
                         });
 
                     } else {

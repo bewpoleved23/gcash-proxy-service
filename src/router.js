@@ -26,10 +26,15 @@ const router = new Cake.Router({
     '/transaction':{
         name:'transaction',
         display:'Transaction',
-        components:['toolbar','table'],
+        components:['nav','toolbar','table'],
         auth:true,
     },
-
+    '/merchant':{
+        name:'merchant',
+        display:'Merchant',
+        components:['nav','toolbar','table'],
+        auth:true,
+    },
     '/':{
         name:'login',
         display:'Login',

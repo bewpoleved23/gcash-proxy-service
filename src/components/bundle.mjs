@@ -12,3 +12,4 @@ import './spinner';
 import './table';
 import './toolbar';
 import './tabs';
+import './nav';
